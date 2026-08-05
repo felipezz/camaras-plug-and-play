@@ -1,13 +1,26 @@
 # Sistema de cámaras Plug & Play
 
-Repositorio de documentación y configuraciones para el sistema de cámaras submarinas Plug & Play.
+Sistema de cámaras submarinas Plug & Play desarrollado por Jade.
 
-## Navegación
-
-1. [Leer cómo funciona el sistema](documentacion/README.md)
-2. [Abrir configuraciones listas para usar](configuraciones/README.md)
+El repositorio contiene la especificación oficial del sistema y las configuraciones necesarias para su implementación.
 
 ## Contenido
 
-- `documentacion/`: objetivo, funcionamiento, reglas, nomenclatura y montaje.
-- `configuraciones/`: configuraciones organizadas por modelo de switch, cantidad de jaulas y cámaras.
+### 📖 Documentación
+
+Describe el funcionamiento del sistema, las condiciones necesarias para su correcto comportamiento y la implementación de referencia.
+
+➡️ `documentacion/Sistema_Plug_and_Play.md`
+
+### ⚙️ Configuraciones
+
+Plantillas listas para configurar los distintos modelos de switch según la cantidad de jaulas y cámaras del centro.
+
+➡️ `configuraciones/`
+
+---
+
+## Objetivo del repositorio
+
+Este repositorio busca que todas las instalaciones del sistema Plug & Play puedan implementarse de forma consistente, utilizando una misma documentación y las mismas configuraciones de referencia.
+
