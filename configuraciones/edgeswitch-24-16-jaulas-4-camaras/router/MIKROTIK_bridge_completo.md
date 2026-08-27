@@ -11,71 +11,81 @@ Después del reinicio, volver a conectarse.
 ## Copiar y pegar
 
 ```routeros
-/interface vlan add name=vlan11 vlan-id=11 interface=ether1
-/interface vlan add name=vlan12 vlan-id=12 interface=ether1
-/interface vlan add name=vlan13 vlan-id=13 interface=ether1
-/interface vlan add name=vlan14 vlan-id=14 interface=ether1
-/interface vlan add name=vlan21 vlan-id=21 interface=ether1
-/interface vlan add name=vlan22 vlan-id=22 interface=ether1
-/interface vlan add name=vlan23 vlan-id=23 interface=ether1
-/interface vlan add name=vlan24 vlan-id=24 interface=ether1
-/interface vlan add name=vlan31 vlan-id=31 interface=ether1
-/interface vlan add name=vlan32 vlan-id=32 interface=ether1
-/interface vlan add name=vlan33 vlan-id=33 interface=ether1
-/interface vlan add name=vlan34 vlan-id=34 interface=ether1
-/interface vlan add name=vlan41 vlan-id=41 interface=ether1
-/interface vlan add name=vlan42 vlan-id=42 interface=ether1
-/interface vlan add name=vlan43 vlan-id=43 interface=ether1
-/interface vlan add name=vlan44 vlan-id=44 interface=ether1
-/interface vlan add name=vlan51 vlan-id=51 interface=ether1
-/interface vlan add name=vlan52 vlan-id=52 interface=ether1
-/interface vlan add name=vlan53 vlan-id=53 interface=ether1
-/interface vlan add name=vlan54 vlan-id=54 interface=ether1
-/interface vlan add name=vlan61 vlan-id=61 interface=ether1
-/interface vlan add name=vlan62 vlan-id=62 interface=ether1
-/interface vlan add name=vlan63 vlan-id=63 interface=ether1
-/interface vlan add name=vlan64 vlan-id=64 interface=ether1
-/interface vlan add name=vlan71 vlan-id=71 interface=ether1
-/interface vlan add name=vlan72 vlan-id=72 interface=ether1
-/interface vlan add name=vlan73 vlan-id=73 interface=ether1
-/interface vlan add name=vlan74 vlan-id=74 interface=ether1
-/interface vlan add name=vlan81 vlan-id=81 interface=ether1
-/interface vlan add name=vlan82 vlan-id=82 interface=ether1
-/interface vlan add name=vlan83 vlan-id=83 interface=ether1
-/interface vlan add name=vlan84 vlan-id=84 interface=ether1
-/interface vlan add name=vlan91 vlan-id=91 interface=ether1
-/interface vlan add name=vlan92 vlan-id=92 interface=ether1
-/interface vlan add name=vlan93 vlan-id=93 interface=ether1
-/interface vlan add name=vlan94 vlan-id=94 interface=ether1
-/interface vlan add name=vlan101 vlan-id=101 interface=ether1
-/interface vlan add name=vlan102 vlan-id=102 interface=ether1
-/interface vlan add name=vlan103 vlan-id=103 interface=ether1
-/interface vlan add name=vlan104 vlan-id=104 interface=ether1
-/interface vlan add name=vlan111 vlan-id=111 interface=ether1
-/interface vlan add name=vlan112 vlan-id=112 interface=ether1
-/interface vlan add name=vlan113 vlan-id=113 interface=ether1
-/interface vlan add name=vlan114 vlan-id=114 interface=ether1
-/interface vlan add name=vlan121 vlan-id=121 interface=ether1
-/interface vlan add name=vlan122 vlan-id=122 interface=ether1
-/interface vlan add name=vlan123 vlan-id=123 interface=ether1
-/interface vlan add name=vlan124 vlan-id=124 interface=ether1
-/interface vlan add name=vlan131 vlan-id=131 interface=ether1
-/interface vlan add name=vlan132 vlan-id=132 interface=ether1
-/interface vlan add name=vlan133 vlan-id=133 interface=ether1
-/interface vlan add name=vlan134 vlan-id=134 interface=ether1
-/interface vlan add name=vlan141 vlan-id=141 interface=ether1
-/interface vlan add name=vlan142 vlan-id=142 interface=ether1
-/interface vlan add name=vlan143 vlan-id=143 interface=ether1
-/interface vlan add name=vlan144 vlan-id=144 interface=ether1
-/interface vlan add name=vlan151 vlan-id=151 interface=ether1
-/interface vlan add name=vlan152 vlan-id=152 interface=ether1
-/interface vlan add name=vlan153 vlan-id=153 interface=ether1
-/interface vlan add name=vlan154 vlan-id=154 interface=ether1
-/interface vlan add name=vlan161 vlan-id=161 interface=ether1
-/interface vlan add name=vlan162 vlan-id=162 interface=ether1
-/interface vlan add name=vlan163 vlan-id=163 interface=ether1
-/interface vlan add name=vlan164 vlan-id=164 interface=ether1
-/interface vlan add name=vlan200 vlan-id=200 interface=ether1
+/interface bridge add name=bridge-lan
+/interface bridge port add bridge=bridge-lan interface=ether1
+/interface bridge port add bridge=bridge-lan interface=ether2
+/interface bridge port add bridge=bridge-lan interface=ether3
+/interface bridge port add bridge=bridge-lan interface=ether4
+/interface bridge port add bridge=bridge-lan interface=ether5
+
+/ip address add address=192.168.1.1/24 interface=bridge-lan
+/ip address add address=192.168.100.1/24 interface=bridge-lan
+
+/interface vlan add name=vlan11 vlan-id=11 interface=bridge-lan
+/interface vlan add name=vlan12 vlan-id=12 interface=bridge-lan
+/interface vlan add name=vlan13 vlan-id=13 interface=bridge-lan
+/interface vlan add name=vlan14 vlan-id=14 interface=bridge-lan
+/interface vlan add name=vlan21 vlan-id=21 interface=bridge-lan
+/interface vlan add name=vlan22 vlan-id=22 interface=bridge-lan
+/interface vlan add name=vlan23 vlan-id=23 interface=bridge-lan
+/interface vlan add name=vlan24 vlan-id=24 interface=bridge-lan
+/interface vlan add name=vlan31 vlan-id=31 interface=bridge-lan
+/interface vlan add name=vlan32 vlan-id=32 interface=bridge-lan
+/interface vlan add name=vlan33 vlan-id=33 interface=bridge-lan
+/interface vlan add name=vlan34 vlan-id=34 interface=bridge-lan
+/interface vlan add name=vlan41 vlan-id=41 interface=bridge-lan
+/interface vlan add name=vlan42 vlan-id=42 interface=bridge-lan
+/interface vlan add name=vlan43 vlan-id=43 interface=bridge-lan
+/interface vlan add name=vlan44 vlan-id=44 interface=bridge-lan
+/interface vlan add name=vlan51 vlan-id=51 interface=bridge-lan
+/interface vlan add name=vlan52 vlan-id=52 interface=bridge-lan
+/interface vlan add name=vlan53 vlan-id=53 interface=bridge-lan
+/interface vlan add name=vlan54 vlan-id=54 interface=bridge-lan
+/interface vlan add name=vlan61 vlan-id=61 interface=bridge-lan
+/interface vlan add name=vlan62 vlan-id=62 interface=bridge-lan
+/interface vlan add name=vlan63 vlan-id=63 interface=bridge-lan
+/interface vlan add name=vlan64 vlan-id=64 interface=bridge-lan
+/interface vlan add name=vlan71 vlan-id=71 interface=bridge-lan
+/interface vlan add name=vlan72 vlan-id=72 interface=bridge-lan
+/interface vlan add name=vlan73 vlan-id=73 interface=bridge-lan
+/interface vlan add name=vlan74 vlan-id=74 interface=bridge-lan
+/interface vlan add name=vlan81 vlan-id=81 interface=bridge-lan
+/interface vlan add name=vlan82 vlan-id=82 interface=bridge-lan
+/interface vlan add name=vlan83 vlan-id=83 interface=bridge-lan
+/interface vlan add name=vlan84 vlan-id=84 interface=bridge-lan
+/interface vlan add name=vlan91 vlan-id=91 interface=bridge-lan
+/interface vlan add name=vlan92 vlan-id=92 interface=bridge-lan
+/interface vlan add name=vlan93 vlan-id=93 interface=bridge-lan
+/interface vlan add name=vlan94 vlan-id=94 interface=bridge-lan
+/interface vlan add name=vlan101 vlan-id=101 interface=bridge-lan
+/interface vlan add name=vlan102 vlan-id=102 interface=bridge-lan
+/interface vlan add name=vlan103 vlan-id=103 interface=bridge-lan
+/interface vlan add name=vlan104 vlan-id=104 interface=bridge-lan
+/interface vlan add name=vlan111 vlan-id=111 interface=bridge-lan
+/interface vlan add name=vlan112 vlan-id=112 interface=bridge-lan
+/interface vlan add name=vlan113 vlan-id=113 interface=bridge-lan
+/interface vlan add name=vlan114 vlan-id=114 interface=bridge-lan
+/interface vlan add name=vlan121 vlan-id=121 interface=bridge-lan
+/interface vlan add name=vlan122 vlan-id=122 interface=bridge-lan
+/interface vlan add name=vlan123 vlan-id=123 interface=bridge-lan
+/interface vlan add name=vlan124 vlan-id=124 interface=bridge-lan
+/interface vlan add name=vlan131 vlan-id=131 interface=bridge-lan
+/interface vlan add name=vlan132 vlan-id=132 interface=bridge-lan
+/interface vlan add name=vlan133 vlan-id=133 interface=bridge-lan
+/interface vlan add name=vlan134 vlan-id=134 interface=bridge-lan
+/interface vlan add name=vlan141 vlan-id=141 interface=bridge-lan
+/interface vlan add name=vlan142 vlan-id=142 interface=bridge-lan
+/interface vlan add name=vlan143 vlan-id=143 interface=bridge-lan
+/interface vlan add name=vlan144 vlan-id=144 interface=bridge-lan
+/interface vlan add name=vlan151 vlan-id=151 interface=bridge-lan
+/interface vlan add name=vlan152 vlan-id=152 interface=bridge-lan
+/interface vlan add name=vlan153 vlan-id=153 interface=bridge-lan
+/interface vlan add name=vlan154 vlan-id=154 interface=bridge-lan
+/interface vlan add name=vlan161 vlan-id=161 interface=bridge-lan
+/interface vlan add name=vlan162 vlan-id=162 interface=bridge-lan
+/interface vlan add name=vlan163 vlan-id=163 interface=bridge-lan
+/interface vlan add name=vlan164 vlan-id=164 interface=bridge-lan
+/interface vlan add name=vlan200 vlan-id=200 interface=bridge-lan
 
 /ip address add address=192.168.11.1/24 interface=vlan11
 /ip address add address=192.168.12.1/24 interface=vlan12
@@ -340,6 +350,13 @@ Después del reinicio, volver a conectarse.
 /ip dhcp-server network add address=192.168.163.0/24 gateway=192.168.163.1
 /ip dhcp-server network add address=192.168.164.0/24 gateway=192.168.164.1
 /ip dhcp-server network add address=192.168.200.0/24 gateway=192.168.200.1
+
+# bridge-lan:
+# ether1 = enlace hacia switches del módulo
+# ether2 = NVR cámaras (192.168.1.100 recomendado)
+# ether3 = NVR cámaras (192.168.1.101 recomendado)
+# ether4 = NVR domos (192.168.100.100 recomendado)
+# ether5 = gestión / reserva
 
 /system backup save name=config-16j-4c
 ```
